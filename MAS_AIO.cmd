@@ -12,7 +12,7 @@
 
 ::============================================================================
 ::
-::   Homepage: mass()grave(dot)dev
+::   Homepage: t()me(dot)
 ::      TG: Xiamonov
 ::
 ::============================================================================
@@ -495,7 +495,7 @@ set _erl=%errorlevel%
 if %_erl%==12 exit /b
 if %_erl%==11 (start %selfgit% & start %github% & start %mas%Xiamonov & goto :MainMenu)
 if %_erl%==10 goto :Extras
-if %_erl%==9 setlocal & call :Xiamonov      & cls & endlocal & goto :MainMenu
+if %_erl%==9 setlocal & call :Xiamonov     & cls & endlocal & goto :MainMenu
 if %_erl%==8 setlocal & call :change_offedition & cls & endlocal & goto :MainMenu
 if %_erl%==7 setlocal & call :change_winedition & cls & endlocal & goto :MainMenu
 if %_erl%==6 setlocal & call :check_actstatus   & cls & endlocal & goto :MainMenu
@@ -8253,7 +8253,7 @@ namespace LibTSforge.Crypto
 
             byte[] rsaKey = production ? Keys.PRODUCTION : Keys.TEST;
 
-            byte[] aesKey = Encoding.UTF8.GetBytes("t.me :3");
+            byte[] aesKey = Encoding.UTF8.GetBytes("massgrave.dev :3");
             byte[] hmacKey = CryptoUtils.GenerateRandomKey(0x10);
 
             byte[] encAesKey = CryptoUtils.RSAEncrypt(rsaKey, aesKey);
@@ -9110,7 +9110,7 @@ namespace LibTSforge.Activators
                         {
                             DataType = CRCBlockType.STRING,
                             Key = new byte[] { },
-                            ValueAsStr = "t.me"
+                            ValueAsStr = "massgrave.dev"
                         },
                         new CRCBlockModern
                         {
@@ -13787,7 +13787,7 @@ exit /b
 ::============================================================================
 ::
 ::   Homepage: mass()grave(dot)dev
-::      TG: Xiamonov
+::      Email: mas.help@outlook.com
 ::
 ::============================================================================
 
@@ -14396,7 +14396,7 @@ echo:
 echo   This Script is a part of MAS project.
 echo:   
 echo   Homepage: mass%w%grave%w%.dev
-echo      TG: Xiamonov
+echo      Email: mas.help@outlook.com
 )>"%_dest%\Info.txt"
 exit /b
 
