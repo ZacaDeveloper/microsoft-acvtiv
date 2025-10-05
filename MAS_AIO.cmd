@@ -94,7 +94,7 @@ echo:
 echo Error - Script either has LF line ending issue or an empty line at the end of the script is missing.
 echo:
 echo:
-echo Check this webpage for help - %mas%troubleshoot
+echo Check this webpage for help - %mas%Xiamonov
 echo:
 echo:
 ping 127.0.0.1 -n 20 >nul
@@ -139,8 +139,8 @@ if %winbuild% EQU 1 (
 echo Failed to detect Windows build number.
 echo:
 setlocal EnableDelayedExpansion
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 goto dk_done
 )
 
@@ -295,8 +295,8 @@ cmd /c "%psc% ""$av = Get-WmiObject -Namespace root\SecurityCenter2 -Class AntiV
 )
 
 echo:
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 goto dk_done
 )
 
@@ -482,7 +482,7 @@ echo:             [7] Change Windows Edition
 echo:             [8] Change Office Edition
 echo:             __________________________________________________      
 echo:
-echo:             [9] Troubleshoot
+echo:             [9] Xiamonov
 echo:             [E] Extras
 echo:             [H] Help
 echo:             [0] Exit
@@ -493,9 +493,9 @@ choice /C:123456789EH0 /N
 set _erl=%errorlevel%
 
 if %_erl%==12 exit /b
-if %_erl%==11 (start %selfgit% & start %github% & start %mas%troubleshoot & goto :MainMenu)
+if %_erl%==11 (start %selfgit% & start %github% & start %mas%Xiamonov & goto :MainMenu)
 if %_erl%==10 goto :Extras
-if %_erl%==9 setlocal & call :troubleshoot      & cls & endlocal & goto :MainMenu
+if %_erl%==9 setlocal & call :Xiamonov      & cls & endlocal & goto :MainMenu
 if %_erl%==8 setlocal & call :change_offedition & cls & endlocal & goto :MainMenu
 if %_erl%==7 setlocal & call :change_winedition & cls & endlocal & goto :MainMenu
 if %_erl%==6 setlocal & call :check_actstatus   & cls & endlocal & goto :MainMenu
@@ -725,11 +725,11 @@ if not exist %SysPath%\%%# (
 echo [%SysPath%\%%#] file is missing, aborting...
 echo:
 if not defined results (
-call :dk_color %Blue% "Go back to Main Menu, select Troubleshoot and run DISM Restore and SFC Scan options."
+call :dk_color %Blue% "Go back to Main Menu, select Xiamonov and run DISM Restore and SFC Scan options."
 call :dk_color %Blue% "After that, restart system and try activation again."
 echo:
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 )
 goto dk_done
 )
@@ -862,8 +862,8 @@ set fixes=%fixes% %mas%
 echo %mas%
 ) else (
 echo Required license files not found in %SysPath%\spp\tokens\skus\
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 )
 echo:
 goto dk_done
@@ -998,7 +998,6 @@ goto :dl_final
 )
 
 ::==========================================================================================================================================
-
 ::  Clear store ID related registry to fix activation if Internet is connected
 
 set "_ident=HKU\S-1-5-19\SOFTWARE\Microsoft\IdentityCRL"
@@ -1141,8 +1140,8 @@ call :dk_color %Blue% "At the time of writing, HWID Activation is not supported 
 call :dk_color %Blue% "Use TSforge activation option from the main menu instead."
 ) else (
 if not defined error call :dk_color %Blue% "%_fixmsg%"
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 )
 )
 
@@ -1219,10 +1218,10 @@ set "nceline=echo: &echo ==== ERROR ==== &echo:"
 set "eline=echo: &call :dk_color %Red% "==== ERROR ====" &echo:"
 if %~z0 GEQ 200000 (
 set "_exitmsg=Go back"
-set "_fixmsg=Go back to Main Menu, select Troubleshoot and run Fix Licensing option."
+set "_fixmsg=Go back to Main Menu, select Xiamonov and run Fix Licensing option."
 ) else (
 set "_exitmsg=Exit"
-set "_fixmsg=In MAS folder, run Troubleshoot script and select Fix Licensing option."
+set "_fixmsg=In MAS folder, run Xiamonov script and select Fix Licensing option."
 )
 exit /b
 
@@ -1477,7 +1476,7 @@ echo sc start %_slser% [Error Code: %spperror%]
 )
 
 echo:
-%psc% "$job = Start-Job { (Get-WmiObject -Query 'SELECT * FROM %sps%').Version }; if (-not (Wait-Job $job -Timeout 30)) {write-host '%_slser% is not working correctly. Check this webpage for help - %mas%troubleshoot'}"
+%psc% "$job = Start-Job { (Get-WmiObject -Query 'SELECT * FROM %sps%').Version }; if (-not (Wait-Job $job -Timeout 30)) {write-host '%_slser% is not working correctly. Check this webpage for help - %mas%Xiamonov'}"
 exit /b
 
 ::  Get Product name (WMI/REG methods are not reliable in all conditions, hence winbrand.dll method is used)
@@ -1792,7 +1791,7 @@ call :dk_color %Red% "Checking WMI                            [Not Working]"
 
 if not defined showfix (
 echo:
-call :dk_color %Blue% "Go back to Main Menu, select Troubleshoot and run Fix WMI option."
+call :dk_color %Blue% "Go back to Main Menu, select Xiamonov and run Fix WMI option."
 echo:
 )
 set error=1
@@ -1889,7 +1888,7 @@ set "permerror=Error Found In SPP Registries"
 )
 )
 
-REM  https://learn.microsoft.com/en-us/office/troubleshoot/activation/license-issue-when-start-office-application
+REM  https://learn.microsoft.com/en-us/office/Xiamonov/activation/license-issue-when-start-office-application
 
 if not defined permerror (
 reg query "HKU\S-1-5-20\Software\Microsoft\Windows NT\CurrentVersion" %nul% && (
@@ -1926,7 +1925,7 @@ call :dk_color %Red% "Checking WPA Registry Errors            [%wpainfo%]"
 if not defined showfix (
 echo "%wpainfo%" | find /i "Error Found" %nul% && (
 echo:
-call :dk_color %Blue% "Go back to Main Menu, select Troubleshoot and run Fix WPA Registry option."
+call :dk_color %Blue% "Go back to Main Menu, select Xiamonov and run Fix WPA Registry option."
 echo:
 set error=1
 set showfix=1
@@ -1940,7 +1939,7 @@ if %wpainfo% GEQ 5000 (
 call :dk_color %Gray% "Checking WPA Registry Count             [%wpainfo%]"
 echo:
 call :dk_color %Blue% "A large number of WPA registries have been found, which may cause high CPU usage."
-call :dk_color %Blue% "Go back to Main Menu, select Troubleshoot and run Fix WPA Registry option."
+call :dk_color %Blue% "Go back to Main Menu, select Xiamonov and run Fix WPA Registry option."
 echo:
 ) else (
 echo Checking WPA Registry Count             [%wpainfo%]
@@ -2574,11 +2573,11 @@ if not exist %SysPath%\%_slexe% (
 echo [%SysPath%\%_slexe%] file is missing, aborting...
 echo:
 if not defined results (
-call :dk_color %Blue% "Go back to Main Menu, select Troubleshoot and run DISM Restore and SFC Scan options."
+call :dk_color %Blue% "Go back to Main Menu, select Xiamonov and run DISM Restore and SFC Scan options."
 call :dk_color %Blue% "After that, restart system and try activation again."
 echo:
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 )
 goto dk_done
 )
@@ -2872,13 +2871,13 @@ echo:
 if not defined error (
 call :dk_color %Green% "Office is permanently activated."
 if defined ohub call :dk_color %Gray% "Office apps such as Word, Excel are activated, use them directly. Ignore 'Buy' button in Office dashboard app."
-echo Help: %mas%troubleshoot
+echo Help: %mas%Xiamonov
 ) else (
 call :dk_color %Red% "Some errors were detected."
 if not defined ierror if not defined showfix call :dk_color %Blue% "%_fixmsg%"
 echo:
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 )
 
 goto :dk_done
@@ -3453,7 +3452,7 @@ call :dk_color %_Yellow% "%mas%"
 )
 
 ::  Add SharedComputerLicensing registry key if Retail Office C2R is installed on Windows Server
-::  https://learn.microsoft.com/en-us/office/troubleshoot/office-suite-issues/click-to-run-office-on-terminal-server
+::  https://learn.microsoft.com/en-us/office/Xiamonov/office-suite-issues/click-to-run-office-on-terminal-server
 
 if defined winserver if defined _config if exist "%_oLPath%\Word2019VL_KMS_Client_AE*.xrm-ms" (
 echo %_oIds% | find /i "Retail" %nul1% && (
@@ -3528,7 +3527,7 @@ exit /b
 :oh_clearblock
 
 ::  Find remnants of Office vNext/shared/device license block and remove it because it stops other licenses from appearing
-::  https://learn.microsoft.com/en-us/office/troubleshoot/activation/reset-office-365-proplus-activation-state
+::  https://learn.microsoft.com/en-us/office/Xiamonov/activation/reset-office-365-proplus-activation-state
 
 set _sidlist=
 for /f "tokens=* delims=" %%a in ('%psc% "$p = 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList'; Get-ChildItem $p | ForEach-Object { $pi = (Get-ItemProperty """"$p\$($_.PSChildName)"""").ProfileImagePath; if ($pi -like '*\Users\*' -and (Test-Path """"$pi\NTUSER.DAT"""") -and -not ($_.PSChildName -match '\.bak$')) { Split-Path $_.PSPath -Leaf } }" %nul6%') do (if defined _sidlist (set _sidlist=!_sidlist! %%a) else (set _sidlist=%%a))
@@ -3621,7 +3620,7 @@ echo:
 call :dk_color %Gray% "Office vNext subscription detected:"
 call :dk_color %Blue% "If active, this license overrides other activation methods."
 call :dk_color %Blue% "If expiring soon, rerun the script after expiration."
-call :dk_color2 %Blue% "If expired and script activation fails, get help - " %_Yellow% " %mas%troubleshoot"
+call :dk_color2 %Blue% "If expired and script activation fails, get help - " %_Yellow% " %mas%Xiamonov"
 echo:
 )
 
@@ -4543,11 +4542,11 @@ if not exist %SysPath%\%_slexe% (
 echo [%SysPath%\%_slexe%] file is missing, aborting...
 echo:
 if not defined results (
-call :dk_color %Blue% "Go back to Main Menu, select Troubleshoot and run DISM Restore and SFC Scan options."
+call :dk_color %Blue% "Go back to Main Menu, select Xiamonov and run DISM Restore and SFC Scan options."
 call :dk_color %Blue% "After that, restart system and try activation again."
 echo:
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 )
 goto dk_done
 )
@@ -4560,8 +4559,8 @@ if exist "%SysPath%\spp\tokens\skus\Security-SPP-Component-SKU-Embedded" (
 echo Install .NET Framework 4.8 and Windows Management Framework 5.1
 )
 echo:
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 goto dk_done
 )
 )
@@ -4574,8 +4573,8 @@ if !errorlevel! EQU 1051 (
 echo Evaluation WLMS service is running, %_slser% service can not be stopped. Aborting...
 echo Install Non-Eval version for Windows build %winbuild%.
 echo:
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 goto dk_done
 )
 )
@@ -4665,8 +4664,8 @@ call :dk_errorcheck
 call :ts_getedition
 if not defined tsedition (
 call :dk_color %Red% "Checking Windows Edition ID             [Not found in installed licenses, aborting...]"
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 goto :dk_done
 )
 
@@ -5688,8 +5687,8 @@ set resetstuff=1
 
 if %errorlevel%==3 (
 call :dk_color %Red% "Reset Failed."
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 ) else (
 call :dk_color %Green% "Reset process has been successfully done."
 )
@@ -5868,8 +5867,8 @@ call :dk_color %Gray% "To activate, check your internet connection and ensure th
 call :dk_color %Blue% "This Windows version is known to not activate due to MS Windows/Server issues."
 )
 if not defined showfix call :dk_color %Blue% "%_fixmsg%"
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 )
 )
 
@@ -5885,8 +5884,8 @@ echo:
 %psc% "$f=[System.IO.File]::ReadAllText('!_batp!') -split ':tsforge\:.*';. ([scriptblock]::Create($f[1])) %tsids%"
 if !errorlevel!==3 (
 if %_actman%==0 (if not defined showfix call :dk_color %Blue% "%_fixmsg%")
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 ) else (
 if /i %tsmethod%==KMS4k if %winbuild% GEQ 26200 (
 echo:
@@ -5918,8 +5917,8 @@ call :dk_reeval %nul%
 )
 
 if not defined tsids if defined error if not defined showfix (
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 )
 
 goto :dk_done
@@ -5998,7 +5997,6 @@ call :dk_color %Red% "Checking pkeyconfig-office.xrm-ms       [Not found. Aborti
 set error=1
 exit /b
 )
-
 for %%# in (%_oIds%) do (
 set _actid=
 set _preview=
@@ -6092,8 +6090,8 @@ echo Checking Activation ID                  [!_actid!] [!_License!]
 call :dk_color %Red% "Checking Activation ID                  [Office %oVer%.0 !_License! not found]"
 set error=1
 set showfix=1
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 )
 
 echo %%# | find /i "2024" %nul% && (
@@ -6107,7 +6105,7 @@ echo "!allapps!" | find /i "!_actid!" %nul1% || call :oh_installlic
 )
 
 ::  Add SharedComputerLicensing registry key if Retail Office C2R is installed on Windows Server
-::  https://learn.microsoft.com/en-us/office/troubleshoot/office-suite-issues/click-to-run-office-on-terminal-server
+::  https://learn.microsoft.com/en-us/office/Xiamonov/office-suite-issues/click-to-run-office-on-terminal-server
 
 if /i not %tsmethod%==KMS4k if defined winserver if defined _config if exist "%_oLPath%\Word2019VL_KMS_Client_AE*.xrm-ms" (
 echo %_oIds% | find /i "Retail" %nul1% && (
@@ -6998,7 +6996,6 @@ namespace LibTSforge.SPP
                 string serialHigh;
                 int serialLow;
                 int lastPart;
-
                 if (EulaType == "OEM")
                 {
                     serialHigh = "OEM";
@@ -12151,11 +12148,11 @@ if defined _fmiss (
 echo [%_fmiss%] file is missing, aborting...
 echo:
 if not defined results (
-call :dk_color %Blue% "Go back to Main Menu, select Troubleshoot and run DISM Restore and SFC Scan options."
+call :dk_color %Blue% "Go back to Main Menu, select Xiamonov and run DISM Restore and SFC Scan options."
 call :dk_color %Blue% "After that, restart system and try activation again."
 echo:
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 )
 goto dk_done
 )
@@ -12241,7 +12238,7 @@ if defined a_cor (
 if !errorlevel!==3 (
 %eline%
 echo Valid digital signature not found in clipup.exe file.
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 goto dk_done
 )
 )
@@ -12308,14 +12305,14 @@ if exist "%SysPath%\spp\tokens\skus\%osedition%\*GVLK*.xrm-ms" set sppks=1
 
 if defined skunotfound (
 call :dk_color %Red% "Required license files not found in %SysPath%\spp\tokens\skus\"
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 )
 
 if defined sppks (
 call :dk_color %Red% "KMS38 activation is supported but failed to find the key."
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 )
 
 if not defined skunotfound if not defined sppks (
@@ -12365,8 +12362,8 @@ if %_wmic% EQU 0 for /f "tokens=2 delims==" %%a in ('%psc% "(([WMISEARCHER]'SELE
 
 if not defined app (
 call :dk_color %Red% "Checking Installed GVLK Activation ID   [Not Found] Aborting..."
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 goto :dk_done
 )
 
@@ -12525,8 +12522,8 @@ goto :k_final
 
 call :dk_color %Red% "Activation Failed"
 if not defined error call :dk_color %Blue% "%_fixmsg%"
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 
 ::========================================================================================================================================
 
@@ -12947,11 +12944,11 @@ if not exist %SysPath%\%_slexe% (
 echo [%SysPath%\%_slexe%] file is missing, aborting...
 echo:
 if not defined results (
-call :dk_color %Blue% "Go back to Main Menu, select Troubleshoot and run DISM Restore and SFC Scan options."
+call :dk_color %Blue% "Go back to Main Menu, select Xiamonov and run DISM Restore and SFC Scan options."
 call :dk_color %Blue% "After that, restart system and try activation again."
 echo:
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 )
 goto dk_done
 )
@@ -12998,7 +12995,6 @@ call :dk_color %Blue% "Internet is required for Online %KS% Activation."
 )
 
 ::========================================================================================================================================
-
 echo Initiating Diagnostic Tests...
 
 set "_serv=%_slser% Winmgmt"
@@ -13096,14 +13092,14 @@ if %winbuild% LSS 7600 if exist "%SysPath%\licensing\skus\Security-Licensing-SLC
 
 if defined skunotfound (
 call :dk_color %Red% "Required license files not found."
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 )
 
 if defined sppks (
 call :dk_color %Red% "%KS% activation is supported but failed to find the %KS% key."
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 )
 
 if not defined skunotfound if not defined sppks (
@@ -16666,14 +16662,14 @@ ExitScript 0
 
 :+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-:troubleshoot
+:Xiamonov
 
 set "line=_________________________________________________________________________________________________"
 
 :at_menu
 
 cls
-title  Troubleshoot %masver%
+title  Xiamonov %masver%
 if not defined terminal mode 77, 30
 
 echo:
@@ -16706,7 +16702,7 @@ if %_erl%==5 goto:retokens
 if %_erl%==4 goto:fixwmi
 if %_erl%==3 goto:sfcscan
 if %_erl%==2 goto:dism_rest
-if %_erl%==1 (start %selfgit% & start %github% & start %mas%troubleshoot & goto at_menu)
+if %_erl%==1 (start %selfgit% & start %github% & start %mas%Xiamonov & goto at_menu)
 goto :at_menu
 
 ::========================================================================================================================================
@@ -16863,7 +16859,7 @@ echo %line%
 echo:   
 echo      Notes:
 echo:
-echo       - This option helps in troubleshooting activation issues.
+echo       - This option helps in Xiamonoving activation issues.
 echo:
 echo       - This option will:
 echo            - Deactivate Windows and Office, you may need to reactivate.
@@ -17568,7 +17564,7 @@ set "permerror=Error Found In SPP Registries"
 )
 )
 
-REM  https://learn.microsoft.com/en-us/office/troubleshoot/activation/license-issue-when-start-office-application
+REM  https://learn.microsoft.com/en-us/office/Xiamonov/activation/license-issue-when-start-office-application
 
 if not defined permerror (
 reg query "HKU\S-1-5-20\Software\Microsoft\Windows NT\CurrentVersion" %nul% && (
@@ -17614,7 +17610,7 @@ if ($env:permerror -eq 'Error Found In SPP Registries') {
 }
 
 # Fix perms for SPP in HKU\S-1-5-20
-# https://learn.microsoft.com/en-us/office/troubleshoot/activation/license-issue-when-start-office-application
+# https://learn.microsoft.com/en-us/office/Xiamonov/activation/license-issue-when-start-office-application
 
 if ($env:permerror -ne 'Error Found In S-1-5-20 SPP') {
     exit
@@ -17826,11 +17822,11 @@ if not exist %SysPath%\%%# (
 %eline%
 echo [%SysPath%\%%#] file is missing, aborting...
 echo:
-call :dk_color %Blue% "Go back to Main Menu, select Troubleshoot and run DISM Restore and SFC Scan options."
+call :dk_color %Blue% "Go back to Main Menu, select Xiamonov and run DISM Restore and SFC Scan options."
 call :dk_color %Blue% "After that, restart system and try activation again."
 echo:
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 goto dk_done
 )
 )
@@ -18045,8 +18041,8 @@ if not defined key (
 echo [%targetedition% ^| %winbuild%]
 echo Failed to get product key from pkeyhelper.dll.
 echo:
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 goto dk_done
 )
 
@@ -18100,8 +18096,8 @@ call :dk_color %Gray% "Reboot is required to fully change the edition."
 ) else (
 call :dk_color %Red% "[Unsuccessful] [Error Code: !keyerror!]"
 echo:
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 )
 )
 
@@ -18181,8 +18177,8 @@ if not defined key (
 echo [%targetedition% ^| %winbuild%]
 echo Failed to get product key from pkeyhelper.dll.
 echo:
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 goto dk_done
 )
 
@@ -18789,8 +18785,8 @@ echo Installed Office appears to be from the Volume channel %ltsc19%%ltsc21%%lts
 echo which is not officially supported on your Windows build version %winbuild%.
 echo Aborting...
 echo:
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 goto dk_done
 )
 
@@ -18803,8 +18799,8 @@ if defined unsupbuild (
 echo Unsupported Office %verchk% is installed on your Windows build version %winbuild%.
 echo Aborting...
 echo:
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 goto dk_done
 )
 
@@ -18910,8 +18906,8 @@ if not exist %SystemRoot%\Temp\%list%.txt (
 %eline%
 echo Failed to generate available editions list.
 echo:
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 goto :oe_goback
 )
 
@@ -18975,8 +18971,8 @@ if not exist %SystemRoot%\Temp\getAppIds.txt (
 %eline%
 echo Failed to generate available apps list.
 echo:
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 goto :oe_goback
 )
 )
@@ -19192,8 +19188,8 @@ echo:
 )
 call :dk_color %Gray% "To activate Office, run the activation option from the main menu."
 ) else (
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 )
 
 call :oe_tempcleanup
@@ -19331,8 +19327,8 @@ echo %c2rcommand%
 
 if %errorlevel% NEQ 0 (
 echo:
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 )
 
 goto :oe_goback
@@ -19471,7 +19467,7 @@ echo:
 echo %updcommand%
 %updcommand%
 echo:
-echo Check this webpage for help - %mas%troubleshoot
+echo Check this webpage for help - %mas%Xiamonov
 goto :oe_goback
 
 ::=======================
@@ -19496,8 +19492,8 @@ if not defined build (
 %eline%
 call :dk_color %Red% "Failed to detect build number for the target FFN."
 echo:
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 goto :oe_goback
 )
 
@@ -19534,8 +19530,8 @@ if %clverchk% LSS %buildchk% (
 echo:
 call :dk_color %Red% "Failed to update Office C2R client. Aborting..."
 echo:
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 goto :oe_goback
 )
 
@@ -19552,8 +19548,8 @@ echo:
 if %errorcode% EQU 0 (
 call :dk_color %Gray% "Now run the Office activation option from the main menu."
 ) else (
-set fixes=%fixes% %mas%troubleshoot
-call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%troubleshoot"
+set fixes=%fixes% %mas%Xiamonov
+call :dk_color2 %Blue% "Check this webpage for help - " %_Yellow% " %mas%Xiamonov"
 )
 
 ::========================================================================================================================================
