@@ -8253,7 +8253,7 @@ namespace LibTSforge.Crypto
 
             byte[] rsaKey = production ? Keys.PRODUCTION : Keys.TEST;
 
-            byte[] aesKey = Encoding.UTF8.GetBytes("massgrave.dev :3");
+            byte[] aesKey = Encoding.UTF8.GetBytes("t.me :3");
             byte[] hmacKey = CryptoUtils.GenerateRandomKey(0x10);
 
             byte[] encAesKey = CryptoUtils.RSAEncrypt(rsaKey, aesKey);
@@ -9110,7 +9110,7 @@ namespace LibTSforge.Activators
                         {
                             DataType = CRCBlockType.STRING,
                             Key = new byte[] { },
-                            ValueAsStr = "massgrave.dev"
+                            ValueAsStr = "t.me"
                         },
                         new CRCBlockModern
                         {
